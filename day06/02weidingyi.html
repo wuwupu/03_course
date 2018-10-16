@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../libs/angular.min.js'></script>
+</head>
+
+<body ng-app='app'>
+    <div ng-controller="ctrl">
+        <div>
+            {{show1}}
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller("ctrl",function($scope,$fileter){
+        //获取某个过滤器的功能
+        //$filter("过滤器名称")
+        var upper=$filtrt("uppercase");
+        $scope.show1=upper("abcd");
+        $socpe.show1=upper$filtrt("uppercase")("abcd");
+
+        //下面是奇偶格式给偶加精辟的是奇偶口岸
+        var formate=$filter("date");
+        $scope.show2=format(new Date(),"yyyy-MM-dd HH:mm:ss");
+    })
+</script>
+
+</html>

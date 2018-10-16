@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../libs/angular.min.js'></script>
+    <style>
+    #d1{
+        border:1px solid red;
+        width:100px;
+        height: 100px;
+    }
+    .red{
+        background-color: red;
+    }
+    .blue{
+        background-color:blue;
+    }
+    </style>
+</head>
+
+<body ng-app='app'>
+    <div ng-controller="ctrl">
+        <ul>
+            <li>
+                <button ng-click="fn()">单击</button>
+                <div ng-mouseenter="enter()" id="d1" ng-mouseleave="leave()" ng-class="{red:color==1,blue:color==2}"></div>
+            </li>
+            <li>
+                <input type="text">+<input type="text">=?
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    
+    var app = angular.module('app', []);
+    app.controller("ctrl",["$scope",function($scope){
+
+        //绑定function
+        $scope.fn=function(){
+            alert("单击过了");
+        }
+        $scope.enter=function(){
+            // alert("enter过了");
+            $scope.color=1;
+        }
+        $scope.leave=function(){
+            $scope.color=2;
+            // alert("leave过了");
+        }
+    }])
+</script>
+
+</html>

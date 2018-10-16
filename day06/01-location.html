@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../libs/angular.min.js'></script>
+</head>
+
+<body ng-app='app'>
+    <div bg-controller="ctrl">
+        <ul>
+            <li>绝对路径：{{absUrl}}</li>
+            <li>相对路劲：{{Url}}</li>
+            <li>主机名：{{host}}</li>
+            <li>端口号：</li>
+            <li>协议：</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    app.controller("ctrl",function($scope,$location){
+        console.log($location);
+        $scope.absUrl=$location.absUrl();
+        $scope.Url=$loacltion.url();
+        $scope.host=$loaction.host();
+        $scope.post=$loaction.post();
+        $scope.propocol=$loaction.propocol();
+    });
+</script>
+
+</html>

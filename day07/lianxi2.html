@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta harset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../libs/angular.min.js'></script>
+    <script src='../libs/angular-route.js'></script>
+</head>
+<body ng-app='app'>
+    <a href="#/a">圆形</a>
+    <a href="#/b">方形</a>
+</body>
+<script>
+    var app = angular.module('app', ["ngRoute"]);
+
+
+    app.config(function($routeProvdier){
+        $routeProvider.when("/",{
+            redirectTo:"/a"
+        }).when("/a",{
+
+        }).when("/b",{
+
+        })
+    })
+    
+</script>
+
+</html>

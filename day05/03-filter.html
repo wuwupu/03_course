@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../libs/angular.min.js'></script>
+</head>
+
+<body ng-app='app'>
+    <ul ng-controller="ctrl"> 
+        <li>
+            uppercasee:{{message|uppercase}}
+        </li>
+        <li>
+            lowercase:{{message|lowercase}}
+        </li>
+        <li>
+            data:{{time|date:"yyyy-MM-dd hh:mm:ss"}}
+        </li>
+        <li>
+            currency:{{money|currency:"$"}}{{money|currency:"￥"}}
+        </li>
+        <li>
+            {{obj}}
+        </li>
+        <li>
+            {{stu}}
+        </li>
+        <li>
+            {{names|filter:"a"}}
+        </li>
+        <li>
+            limitTo{{message|limitTo:4}}
+            limitTo{{message|limitTo:-4}}
+            limitTo{{names|limitTo:2}}
+        </li>
+        <li>
+            number:{{number|number}}
+        </li>
+        <li>
+            orderBy:
+            {{nums|orderBy:"":true}}
+            {{stus|orderBy:"":true}}
+            {{stus|orderBy:["+id","-age"]}}
+
+        </li>
+    </ul>
+</body>
+<script>
+    var app = angular.module('app', []);
+    // var student=new Stu{"张三",35};
+    app.controller("ctrl",["$scope",function($scope){
+        $scope.message="good good study,day day up";
+        $scope.time=new Date();
+        $scope.money=35;
+        
+        // $scope.obj = new Objcet();
+        // $scope.obj.name="张三";
+        // $scope.obj.age=23;
+        // $scope.stu=student;
+        $scope.names=["zhangsan","lisi","jack","align"];
+        $scope.number=12341234124;
+        $scope.nums=[4,45,45,64,64562,4,25,43,6241];
+        $scope.stus=[
+            {id:101,name:"mike",age:11},
+            {id:102,name:"lily",age:33},
+            {id:103,name:"rose",age:24},
+            {id:104,name:"xiaoming",age:67},
+            {id:105,name:"lilei",age:27}
+        ]
+
+    }])
+</script>
+
+</html>

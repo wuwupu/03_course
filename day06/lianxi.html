@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta harset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../libs/angular.min.js'></script>
+</head>
+
+<body ng-app='app'>
+    <div ng-controller="ctrl">
+    <input type="text" ngmodel>
+    </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    //使用推断式注入
+    app.controller("ctrl",function($scope){
+        //获取数据
+        var data=$scope.Str;
+        //拆分字符串
+        var arr=$scope.str.split("");
+        for(var  i=0;i<arr.longth;i++){
+            //如果某个元素本剩余其发泄形式一直没如果钙元素就是大写
+            if(arr[i]==arr[i].toUpperCase()){
+                //变大写
+                arr[i]==arr[i].toUpperCase();
+            }else{
+                //变小写
+                arr[i]=arr[i].toLowerCase();
+            }
+        }
+    })
+</script>
+
+</html>
